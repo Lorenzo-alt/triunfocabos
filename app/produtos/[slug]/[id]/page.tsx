@@ -16,7 +16,7 @@ type typeDoc = {
 
 export default async function Page({ params }: { params: { id: string } }) {
   const res = await fetch(
-    "http://localhost:3000/api/produto/?id=" + params.id,
+    process.env.SITE_URL + "api/produto/?id=" + params.id,
     {
       next: { revalidate: 0 },
     }
