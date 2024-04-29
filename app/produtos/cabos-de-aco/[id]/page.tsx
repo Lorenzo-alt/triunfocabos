@@ -24,6 +24,8 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   const data: typeDoc = await res.json();
 
+  console.log(data, 'testeee');
+
   if (data.ProdutoDoc) {
     return (
       <main className="flex flex-col items-center justify-center h-full w-full max-w-[2560px] ">
@@ -49,7 +51,6 @@ export default async function Page({ params }: { params: { id: string } }) {
           <section className="flex flex-col bg-azul-titulo w-full items-center py-10">
             <div className="w-max rounded-[10px] shadow-[0px_0px_30.0px_rgba(13,19,22,1)] shadow-azul-principal">
               {data.ProdutoDoc.tabela.map((item, index) => {
-
                 return (
                   <div
                     key={index}
@@ -62,12 +63,17 @@ export default async function Page({ params }: { params: { id: string } }) {
                           : index === data.ProdutoDoc.tabela.length - 1
                           ? "0% 0% 10px 10px"
                           : "0%",
-                        gridTemplateColumns: `repeat(${item.split(";").length}, minmax(0, 1fr))`
+                      gridTemplateColumns: `repeat(${
+                        item.split(";").length
+                      }, minmax(0, 1fr))`,
                     }}
                   >
                     {item.split(";").map((item, index) => {
                       return (
-                        <div key={index} className="flex justify-center p-3 max-w-52 items-center text-center">
+                        <div
+                          key={index}
+                          className="flex justify-center p-3 max-w-52 items-center text-center"
+                        >
                           {item}
                         </div>
                       );

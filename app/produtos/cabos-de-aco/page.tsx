@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const lista = checkList(params.slug)
+  const lista = checkList('cabos-de-aco')
 
   return (
     <main className="flex flex-col items-center justify-center h-full w-full max-w-[2560px]">
@@ -52,7 +52,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               <Link
                 prefetch={false}
                 href={
-                  params.slug + "/" +
+                  'cabos-de-aco' + "/" +
                   item.nome
                     .toLowerCase()
                     .normalize("NFD")
