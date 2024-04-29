@@ -1,3 +1,76 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+:root {
+  --swiper-pagination-color: #991D1D;
+  --swiper-pagination-bullet-inactive-color: #999999;
+  --swiper-pagination-bullet-inactive-opacity: 1;
+  --swiper-pagination-bullet-size: 5px;
+  --swiper-pagination-bullet-horizontal-gap: 4px;
+  --swiper-navigation-color: #FFFFFF;
+}
+.swiper-button-next, .swiper-button-prev {
+  --swiper-navigation-size: 24px;
+      }
+@media (min-width: 1024px) {
+  .swiper-button-next, .swiper-button-prev {
+      --swiper-navigation-size: 36px;
+          }
+        }
+
+@media (min-width: 1280px) {
+  .swiper-button-next, .swiper-button-prev {
+      --swiper-navigation-size: 44px;
+          }
+        }
+
+@media (min-width: 1024px) {
+  :root{
+    --swiper-pagination-color: #991D1D;
+  }
+}
+
+.teste >  .swiper-button-next {
+    left: 50%;
+    transform: rotate(90deg);
+    transform-origin: left center;
+    top: auto;
+    bottom: 10px;
+    --swiper-navigation-color: #A0A0A0;
+  }
+
+  .teste >   .swiper-button-prev {
+    --swiper-navigation-color: #A0A0A0;
+    left: 50%;
+    transform: rotate(90deg);
+    transform-origin: left center;
+    top: 10px;
+  }
+
+.teste > .swiper-scrollbar{
+  display: none;
+}
+
+
+.truncate-multiline {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+::-moz-selection { /* Code for Firefox */
+    color: white;
+    background: #304d5f;
+  }
+  
+  ::selection {
+    color: white;
+    background: #304d5f;
+  }
+
+ .list-disc{
+  padding-left: 20px;
+ } 
