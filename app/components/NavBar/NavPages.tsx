@@ -64,6 +64,7 @@ export default function NavPages() {
           return (
             <li key={item.name + index}>
               <Link
+                prefetch={false}
                 href={item.path}
                 className={twMerge(
                   "rounded-[10px] hover:outline outline-1 text-sm xl:text-base font-medium transition-all outline-zinc-300/40 outline-offset-2 p-4 px-6 cursor-pointer",
@@ -79,7 +80,8 @@ export default function NavPages() {
         })}
         <li>
           <Link
-            href={'contato'}
+            prefetch={false}
+            href={"contato"}
             className={twMerge(
               "rounded-[10px] text-sm font-medium cursor-pointer p-4 px-12 bg-vermelho-principal shadow-[4px_4px_0px_rgba(60,14,9,0.70)]"
             )}
