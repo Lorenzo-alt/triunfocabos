@@ -9,8 +9,7 @@ export async function GET(request: Request) {
     
     const ProdutoDoc = await Produtos.findOne({linkId: id})
 
-    const produtos = await Produtos.find()
-    console.log(produtos)
+    console.log(ProdutoDoc)
 
     return Response.json({ProdutoDoc})
 }
