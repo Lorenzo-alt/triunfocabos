@@ -22,9 +22,13 @@ export default async function Page({ params }: { params: { id: string } }) {
     }
   );
 
-  const data: typeDoc = await res.json();
+  const teste = await res.json();
 
-  console.log(data, 'testeee');
+  if (teste) {
+    const data: typeDoc = teste;
+  
+
+  console.log(data, "testeee");
 
   if (data.ProdutoDoc) {
     return (
@@ -87,7 +91,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         <FormContato />
       </main>
     );
-  } else {
+  }} else {
     // redirect("/404");
   }
 }
