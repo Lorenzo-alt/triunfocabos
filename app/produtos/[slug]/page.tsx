@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const lista = checkList('cabos-de-aco')
+  const lista = checkList(params.slug)
 
   return (
     <main className="flex flex-col items-center justify-center h-full w-full max-w-[2560px]">
@@ -52,13 +52,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
               <Link
                 prefetch={false}
                 href={
-                  'cabos-de-aco' + "/" +
+                  params.slug + "/" +
                   item.nome
                     .toLowerCase()
                     .normalize("NFD")
                     .replace(/[\u0300-\u036f]/g, "")
                     .replaceAll(" ", "-")
-                    .replaceAll("/", "-")
+                    .replaceAll("/", "-").replaceAll("+", "%2B")
                 }
                 key={item.nome + index}
                 className="w-[180px] h-[220px] md:w-[230px] md:h-[270px] lg:w-[280px] lg:h-[320px] xl:w-[330px] xl:h-[370px] 2xl:w-[350px] 2xl:h-[390px] bg-cinza-claro shadow-[0px_0px_10px_rgba(0,0,0,0.25)] p-1 lg:p-2 flex flex-col gap-2"
