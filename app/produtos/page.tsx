@@ -29,8 +29,6 @@ export const metadata: Metadata = {
   },
 };
 
-
-
 export default async function Produtos() {
   return (
     <main className="flex flex-col items-center justify-center h-full w-full max-w-[2560px]">
@@ -46,6 +44,7 @@ export default async function Produtos() {
           {listaDeTiposDeProdutos.map((item, index) => {
             return (
               <Link
+                prefetch={false}
                 href={
                   "produtos/" +
                   item.nome

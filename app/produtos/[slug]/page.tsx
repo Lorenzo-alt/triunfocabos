@@ -50,8 +50,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
           {lista && lista.map((item, index) => {
             return (
               <Link
+                prefetch={false}
                 href={
-                  "produtos/" +
+                  params.slug + "/" +
                   item.nome
                     .toLowerCase()
                     .normalize("NFD")
