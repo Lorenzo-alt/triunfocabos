@@ -78,7 +78,9 @@ const listaDeCabosDeAço = [
 
   const listaDeAcessoriosCabosDeAço = [
     {
-      nome: "CABO DE AÇO POLIDO 19X7 NÃO ROTATIVO",
-      foto: "/produtos/AÇO POLIDO 19X7.svg",
+      nome: "GANCHO CORREDIÇO PARA CABO",
+      foto: "/produtos/acessorios-cabos/GANCHO-CORREDICO.webp",
     },
   ];
+
+  
