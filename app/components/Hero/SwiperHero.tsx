@@ -42,7 +42,7 @@ export default function SwiperHero() {
       modules={[Autoplay, Navigation, Pagination, A11y]}
       slidesPerView={1}
       initialSlide={0}
-      // autoplay={{ delay: 11000 }}
+      autoplay={{ delay: 11000 }}
       navigation
       // @ts-ignore
       style={{ "--swiper-navigation-size": "24px" }}

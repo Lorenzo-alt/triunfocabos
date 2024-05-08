@@ -31,7 +31,7 @@ export default function SwiperItem(props: typeProps) {
       <div ref={ref} className="relative flex justify-center">
         <motion.div
           variants={{
-            hidden: { opacity: 0, y: 50 },
+            hidden: { opacity: 0, y: 30 },
             visible: { opacity: 1, y: 0 },
           }}
           initial="hidden"
@@ -61,7 +61,7 @@ export default function SwiperItem(props: typeProps) {
           }}
           initial="hidden"
           animate={slideControls}
-          transition={{ duration: 0.2, ease: "easeIn", delay: 0 }}
+          transition={{ duration: 0.3, ease: "easeIn", delay: 0 }}
           className="absolute top-2 bottom-2 left-0 right-0 rounded-lg bg-azul-principal z-10"
         ></motion.div>
       </div>
