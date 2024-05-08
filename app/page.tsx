@@ -6,6 +6,7 @@ import Produtos from "./components/Produtos";
 import Servicos from "./components/Servicos";
 import Diferenciais from "./components/Diferenciais";
 import FormContato from "./components/FormContato";
+import Loading from "./loading";
 
 export const metadata: Metadata = {
   title: "Home | RM Trinfo Cabos",

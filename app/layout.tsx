@@ -3,6 +3,8 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -46,7 +48,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable} bg-fundo`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${poppins.variable} bg-fundo`}
+    >
       <body className="flex flex-col items-center">
         <link
           rel="icon"
@@ -54,9 +59,11 @@ export default function RootLayout({
           type="image/x-icon"
           sizes="64x64"
         />
-        <NavBar />
-        {children}
-        <Footer/>
+        <Suspense fallback={<Loading />}>
+          <NavBar />
+          {children}
+          <Footer />
+        </Suspense>
       </body>
     </html>
   );

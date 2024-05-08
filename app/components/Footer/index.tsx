@@ -28,18 +28,18 @@ const blocksFooter = [
     },
     {
       icone: <IoLogoWhatsapp color="#263945" fontSize={18} className="hidden xl:block"/>,
-      dado: "(11) 95913-4847",
-      link: "tel://5511959134847/",
+      dado: "(11) 98391-3732",
+      link: "https://api.whatsapp.com/send?phone=5511983913732&text=Ol%C3%A1,%20equipe%20da%20RM%20Triunfo%20Cabos!%20Tenho%20interesse%20em%20obter%20um%20or%C3%A7amento",
     },
     {
       icone: <IoMail color="#263945" fontSize={18} className="hidden xl:block"/>,
-      dado: "email.email@email.com",
-      link: "tel://5511959134847/",
+      dado: "rm@triunfocabos.com.br",
+      link: "mailto:rm@triunfocabos.com.br",
     },
     {
       icone: <IoFlag color="#263945" fontSize={18} className="hidden xl:block min-w-[18px]"/>,
       dado: "R. Barretos, 289 - Alto da Mooca, São Paulo - SP, 03184-080",
-      link: "tel://5511959134847/",
+      link: "https://maps.app.goo.gl/sXbv872agVW6ym6k6",
     },
   ],
 ];
@@ -87,10 +87,10 @@ export default function index() {
         </div>
         <div className="flex flex-wrap justify-center xl:flex-col gap-3 xl:w-80"><span className="font-bold flex justify-center xl:justify-start w-full xl:w-auto xl:ml-7">Atendimento</span>
         {(blocksFooter[2] as { icone: JSX.Element, dado: string, link: string }[]).map((item, index) =>
-          <Link href={item.link} key={item.dado.length + index} className="hover:underline flex gap-2">
+          <a href={item.link} target="_blank" rel="noopener noreferrer" key={item.dado.length + index} className="hover:underline flex gap-2">
             {item.icone}
             <p className="max-w-60 text-center xl:text-left xl:max-w-max">{item.dado}</p>
-          </Link>
+          </a>
           )}
         </div>
       </div>

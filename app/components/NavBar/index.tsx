@@ -12,15 +12,17 @@ import NavPages from "./NavPages";
 const navInfos = [
   {
     icone: <IoCall color="#E2E023" fontSize={18} />,
-    text: "+55 11 98391-3732",
+    text: "+55 11 95913-4847",link: "tel://5511959134847/"
   },
   {
     icone: <IoMail color="#E2E023" fontSize={18} />,
-    text: "email.email@email.com",
+    text: "rm@triunfocabos.com.br",
+    link: "mailto:rm@triunfocabos.com.br"
   },
   {
     icone: <IoFlag color="#E2E023" fontSize={18} />,
     text: "R. Barretos, 289 - Alto da Mooca, São Paulo - SP",
+    link: "https://maps.app.goo.gl/sXbv872agVW6ym6k6",
   },
 ];
 
@@ -46,13 +48,15 @@ export default function NavBar() {
         <div className="flex gap-10 lg:text-xs">
           {navInfos.map((item, index) => {
             return (
-              <div
+              <a
                 className="flex gap-1 items-center hover:text-[#E2E023] cursor-pointer transition-all"
+                href={item.link}
+                target="_blank" rel="noopener noreferrer"
                 key={index}
               >
                 {item.icone}
                 <span>{item.text}</span>
-              </div>
+              </a>
             );
           })}
         </div>
