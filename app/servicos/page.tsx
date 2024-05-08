@@ -114,7 +114,7 @@ export default async function Servicos() {
                 >
                   <div className="w-full h-full bg-[#76787B]/70 rounded-[10px] rounded-tl-[30px] rounded-br-[30px] flex flex-col items-center justify-center px-8 relative">
                     <Image
-                      src={"/fundo-servItem.png"}
+                      src={"/fundo-servitem.png"}
                       alt="a"
                       width={325}
                       height={358}
