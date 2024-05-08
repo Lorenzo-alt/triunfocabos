@@ -57,6 +57,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                     .toLowerCase()
                     .normalize("NFD")
                     .replace(/[\u0300-\u036f]/g, "")
+                    .replaceAll(",", "")
                     .replaceAll(" ", "-")
                     .replaceAll("/", "-").replaceAll("+", "%2B")
                 }
@@ -68,7 +69,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   alt="aaa"
                   width={1920}
                   height={1080}
-                  className="w-full h-[150px] md:h-[200px] lg:h-[240px] xl:h-[280px] 2xl:h-[300px] object-contain p-10 xl:p-16"
+                  className="w-full h-[150px] md:h-[200px] lg:h-[240px] xl:h-[280px] 2xl:h-[300px] object-contain p-10 xl:p-16 bg-white"
                 />
                 <div className="text-wrap md:text-lg lg:text-xl xl:text-2xl font-bold font-mono text-azul-titulo break-words whitespace-pre-line">
                   <p className="truncate-multiline text-center px-2">

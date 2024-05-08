@@ -32,11 +32,11 @@ export const metadata: Metadata = {
 const servicosInfos = [
   {
     titulo: "INSPEÇÃO, REBOBINAMENTO, LUBRIFICAÇÃO DE CABOS DE AÇO",
-    link: "/",
+    link: "/servicos/insp-rebo-lubri-de-cabos-de-aco",
   },
-  { titulo: "EMENDA EM CABOS DE AÇO", link: "/" },
-  { titulo: "SOQUETAGEM DE CABOS DE AÇO", link: "/" },
-  { titulo: "TREINAMENTO", link: "/" },
+  { titulo: "EMENDA EM CABOS DE AÇO", link: "/servicos/emenda-em-cabos-de-aco" },
+  { titulo: "SOQUETAGEM DE CABOS DE AÇO", link: "/servicos/soquetagem-de-cabos-de-aco" },
+  { titulo: "TREINAMENTO", link: "/servicos/treinamento" },
 ];
 
 export default async function Servicos() {
@@ -56,22 +56,22 @@ export default async function Servicos() {
           eficiência em todas as etapas. Aqui estão os principais serviços que
           oferecemos:
         </p>
-        <div className="xl:w-[1047px] xl:h-[942px] relative flex justify-between flex-col gap-8 lg:flex-row">
+        <div className="lg:w-[842px] lg:h-[722px] xl:w-[1047px] xl:h-[942px] relative flex justify-between flex-col gap-8 lg:flex-row">
           <div className="hidden absolute -z-10 w-full h-full lg:flex items-center justify-center">
             <Image
               src={"/fundo-serviços.png"}
               alt="a"
               width={720}
               height={720}
-              className=""
+              className="lg:w-[500px] lg:h-[500px] xl:w-[720px] xl:h-[720px]"
             />
           </div>
 
           <div className="self-start flex flex-col gap-8 relative z-10 ">
-            
             {servicosInfos.slice(0, 2).map((item, index) => {
               return (
-                <div
+                <Link
+                  href={item.link}
                   key={index + item.titulo}
                   className="min-w-[210px] max-w-[210px] h-[232px] xl:min-w-[266px] xl:h-[295px] 2xl:min-w-[325px] 2xl:h-[358px] rounded-[10px] rounded-tl-[30px] rounded-br-[30px] pb-[9px] xl:pb-4 bg-[#C29A4B] relative -z-10"
                 >
@@ -101,13 +101,12 @@ export default async function Servicos() {
                       </Link>
                     </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
-            
           </div>
           <div className="self-end flex flex-col gap-8 relative z-10">
-          {servicosInfos.slice(2).map((item, index) => {
+            {servicosInfos.slice(2).map((item, index) => {
               return (
                 <div
                   key={index + item.titulo}

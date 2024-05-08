@@ -57,7 +57,7 @@ export default function NavPages() {
         className={twMerge(
           "xl:gap-16 items-center font-medium is-dirty peer absolute top-0 right-0 lg:static font-mono hidden lg:flex  lg:gap-5",
           isMobile &&
-            "bg-azul-principal gap-10 flex flex-col p-4 -right-4 top-14 rounded-lg"
+            "bg-azul-principal gap-10 flex flex-col p-4 pb-8 -right-4 top-14 rounded-lg"
         )}
       >
         {navItems.map((item, index) => {
