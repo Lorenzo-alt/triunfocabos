@@ -5,11 +5,11 @@ import { TbArrowUpRight } from "react-icons/tb";
 const servicosInfos = [
   {
     titulo: "INSPEÇÃO, REBOBINAMENTO, LUBRIFICAÇÃO DE CABOS DE AÇO",
-    link: "/",
+    link: "/servicos/insp-rebo-lubri-de-cabos-de-aco",
   },
-  { titulo: "EMENDA EM CABOS DE AÇO", link: "/" },
-  { titulo: "SOQUETAGEM DE CABOS DE AÇO", link: "/" },
-  { titulo: "TREINAMENTO", link: "/" },
+  { titulo: "EMENDA EM CABOS DE AÇO", link: "/servicos/emenda-em-cabos-de-aco" },
+  { titulo: "SOQUETAGEM DE CABOS DE AÇO", link: "/servicos/soquetagem-de-cabos-de-aco" },
+  { titulo: "TREINAMENTO", link: "/servicos/treinamento" },
 ];
 
 export default function index() {
@@ -44,9 +44,9 @@ export default function index() {
                 <div className="w-full h-[35%] flex items-center justify-center">
                   <Link
                     href={item.link}
-                    className="font-mono rounded-[10px] bg-azul-claro"
+                    className="font-mono rounded-[10px] transition-all hover:rounded-2xl text-white hover:text-[#E2E023]/90 bg-azul-claro"
                   >
-                    <div className="flex items-center text-white font-sans font-bold text-sm xl:text-lg 2xl:text-xl gap-1 px-3 xl:px-5 2xl:px-6  py-1 xl:py-2">
+                    <div className="flex items-center font-sans font-bold text-sm xl:text-lg 2xl:text-xl gap-1 px-3 xl:px-5 2xl:px-6  py-1 xl:py-2">
                       Saiba mais
                       <TbArrowUpRight className="w-5 h-auto" />
                     </div>

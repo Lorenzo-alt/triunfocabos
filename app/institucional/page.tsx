@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import LargeDisplay from "./LargeDisplay";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Institucional | RM Trinfo Cabos",
@@ -99,9 +100,9 @@ export default async function Institucional() {
           </div>
         </div>
         <LargeDisplay />
-        <button className="mx-1 lg:mx-16 xl:mx-24  bg-azul-titulo py-3 px-4 font-bold rounded-[5px] lg:rounded-[10px] text-white text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl hover:text-[#E2E023]/90">
+        <Link href={'/contato'} className="mx-1 lg:mx-16 xl:mx-24  bg-azul-titulo py-3 px-4 font-bold text-center rounded-[5px] lg:rounded-[10px] text-white text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl hover:text-[#E2E023]/90">
           Entre em contato conosco e solicite um orçamento sem compromisso
-        </button>
+        </Link>
       </section>
     </main>
   );
