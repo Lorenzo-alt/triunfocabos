@@ -140,7 +140,7 @@ export default function NavPages() {
               >
                 {item.name}
               </Link>
-              {item.name === "Produtos" && (
+              {(item.name === "Produtos" && isMobile === false) && (
                 <DropDown
                   setOpenNav={setOpenNav}
                   openNav={openNav}
@@ -148,7 +148,7 @@ export default function NavPages() {
                   name={item.name}
                 />
               )}
-              {item.name === "Serviços" && (
+              {(item.name === "Serviços" && isMobile === false) && (
                 <DropDown
                   setOpenNav={setOpenNav}
                   openNav={openNav}

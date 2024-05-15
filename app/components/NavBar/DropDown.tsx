@@ -48,12 +48,12 @@ export default function DropDown(props: typeProps) {
         });
       }}
       className={twMerge(
-        "absolute z-50 top-full bg-cinza py-2 pt-2.5 text-azul-titulo font-medium rounded-[5px] rounded-tr-xl rounded-bl-xl hidden",
+        "absolute z-50 top-full bg-cinza py-2 pt-2.5 text-azul-titulo font-medium text-sm rounded-[5px] rounded-tr-xl rounded-bl-xl hidden",
         props.name === "Produtos" && props.openNav.produtos && "block",
         props.name === "Serviços" && props.openNav.servicos && "block"
       )}
     >
-      <div className="flex flex-col flex-wrap max-h-80 w-[345px] divide-y divide-black/5">
+      <div className="flex flex-col flex-wrap max-h-80 w-[300px] divide-y divide-black/5">
         {Lista.map((item, index) => {
           return (
             <Link
@@ -70,7 +70,7 @@ export default function DropDown(props: typeProps) {
                   .replaceAll("+", "%2B")
               }
               key={item.nome + index}
-              className="px-6 py-1.5 transition-all hover:bg-black/5 hover:underline hover:font-bold max-w-[345px] truncate"
+              className="px-6 py-1.5 transition-all hover:bg-black/5 hover:underline hover:font-bold max-w-[300px] truncate"
             >
               {item.nome}
             </Link>
