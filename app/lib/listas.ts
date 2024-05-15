@@ -1,7 +1,7 @@
 export const listaDeTiposDeProdutos = [
   {
     nome: "CABOS DE AÇO",
-    foto: "/produtos/cabos-de-aco/AÇO POLIDO 19X7.svg",
+    foto: "/produtos/cabos-de-aco/cabos-de-aco.jpg",
   },
   {
     nome: "ACESSÓRIOS CABOS DE AÇO",
