@@ -1,5 +1,7 @@
+"use client";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
 import { TbArrowUpRight } from "react-icons/tb";
 
 const servicosInfos = [
@@ -7,30 +9,48 @@ const servicosInfos = [
     titulo: "INSPEÇÃO, REBOBINAMENTO, LUBRIFICAÇÃO DE CABOS DE AÇO",
     link: "/servicos/insp-rebo-lubri-de-cabos-de-aco",
   },
-  { titulo: "EMENDA EM CABOS DE AÇO", link: "/servicos/emenda-em-cabos-de-aco" },
-  { titulo: "SOQUETAGEM DE CABOS DE AÇO", link: "/servicos/soquetagem-de-cabos-de-aco" },
+  {
+    titulo: "EMENDA EM CABOS DE AÇO",
+    link: "/servicos/emenda-em-cabos-de-aco",
+  },
+  {
+    titulo: "SOQUETAGEM DE CABOS DE AÇO",
+    link: "/servicos/soquetagem-de-cabos-de-aco",
+  },
   { titulo: "TREINAMENTO", link: "/servicos/treinamento" },
 ];
 
-export default function index() {
+export default function Servicos() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
-    <section className="bg-azul-titulo w-full">
-      <div className="w-full py-8 lg:py-12 text-center">
+    <section ref={ref} className="bg-azul-titulo w-full">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
+        className="w-full py-8 lg:py-12 text-center"
+      >
         <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-mono text-white font-bold drop-shadow-[2px_0px_0px_rgba(173,173,173,1)]">
           SERVIÇOS
         </h2>
-      </div>
-      <span className="font-medium text-sm md:text-base xl:text-xl 2xl:text-[24px] text-white flex justify-center" >
+      </motion.div>
+      <motion.span
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
+        className="font-medium text-sm md:text-base xl:text-xl 2xl:text-[24px] text-white flex justify-center"
+      >
         <p className="text-center px-5 xl:py-5 md:px-20 lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl">
           Descubra a excelência em movimentação e amarração de carga com a
           Triunfo Cabos. Além de fornecer os mais confiáveis materiais,
           apresentamos uma gama de serviços para complementar sua experiência
         </p>
-      </span>
+      </motion.span>
       <div className="flex gap-8 p-8 md:px-4 xl:pb-20 2xl:gap-14 lg:items-center lg:justify-center overflow-x-scroll overflow-y-hidden lg:overflow-visible">
         {servicosInfos.map((item, index) => {
           return (
-            <div
+            <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.8 }} transition={{ duration: 0.3, delay: index * 0.1}}
               key={item.titulo.length + index}
               className="min-w-[210px] max-w-[210px] h-[232px] xl:min-w-[266px] xl:h-[295px] 2xl:min-w-[325px] 2xl:h-[358px] rounded-[10px] rounded-tl-[30px] rounded-br-[30px] pb-[9px] xl:pb-4 bg-azul-claro"
             >
@@ -53,7 +73,7 @@ export default function index() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>

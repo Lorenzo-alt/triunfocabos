@@ -1,3 +1,4 @@
+'use client'
 import Logo from "@/public/logo.svg";
 import Link from "next/link";
 import { IoCall } from "react-icons/io5";
@@ -6,6 +7,8 @@ import { IoFlag } from "react-icons/io5";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { FiInstagram } from "react-icons/fi";
 import { FaFacebookF } from "react-icons/fa6";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const blocksFooter = [
   {
@@ -59,38 +62,47 @@ const navSocial = [
   },
 ];
 
-export default function index() {
+export default function Footer() {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
   return (
     <footer className="bg-azul-principal w-full flex flex-col gap-10 py-5 px-6 text-white">
-      <div className="flex justify-between items-start flex-col text-sm xl:text-base gap-6 xl:gap-0 xl:flex-row 2xl:px-40">
-        <div className="flex-col gap-4 text-justify w-80 hidden xl:flex">
+      <div ref={ref} className="flex justify-between items-start flex-col text-sm xl:text-base gap-6 xl:gap-0 xl:flex-row 2xl:px-40">
+        <motion.div initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }} className="flex-col gap-4 text-justify w-80 hidden xl:flex">
           <div>
             {(blocksFooter[0] as { text: string; logo: JSX.Element }).text}
           </div>
           {(blocksFooter[0] as { text: string; logo: JSX.Element }).logo}
-        </div>
+        </motion.div>
         <div className="flex flex-wrap justify-center xl:flex-col gap-3">
-          <span className="font-bold flex justify-center xl:justify-start w-full xl:w-auto">Navegue</span>
+          <motion.span initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}  className="font-bold flex justify-center xl:justify-start w-full xl:w-auto">Navegue</motion.span>
           {(blocksFooter[1] as { path: string; name: string }[]).map(
             (item, index) => {
               return (
+                <motion.div initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }} transition={{ duration: 0.1, delay: index * 0.05}} key={item.name + index}>
                 <Link
                   href={item.path}
-                  key={item.name + index}
+                  
                   className="hover:underline"
                 >
                   {item.name}
                 </Link>
+                </motion.div>
               );
             }
           )}
         </div>
-        <div className="flex flex-wrap justify-center xl:flex-col gap-3 xl:w-80"><span className="font-bold flex justify-center xl:justify-start w-full xl:w-auto xl:ml-7">Atendimento</span>
+        <div className="flex flex-wrap justify-center xl:flex-col gap-3 xl:w-80"><motion.span initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}  className="font-bold flex justify-center xl:justify-start w-full xl:w-auto xl:ml-7">Atendimento</motion.span>
         {(blocksFooter[2] as { icone: JSX.Element, dado: string, link: string }[]).map((item, index) =>
-          <a href={item.link} target="_blank" rel="noopener noreferrer" key={item.dado.length + index} className="hover:underline flex gap-2">
+          <motion.a initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }} transition={{ duration: 0.1, delay: index * 0.05}} href={item.link} target="_blank" rel="noopener noreferrer" key={item.dado.length + index} className="hover:underline flex gap-2">
             {item.icone}
             <p className="max-w-60 text-center xl:text-left xl:max-w-max">{item.dado}</p>
-          </a>
+          </motion.a>
           )}
         </div>
       </div>

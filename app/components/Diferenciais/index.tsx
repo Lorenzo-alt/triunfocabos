@@ -11,6 +11,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { title } from "process";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const diferenciaisData = [
   [
@@ -22,30 +24,45 @@ const diferenciaisData = [
     {
       title: "Qualidade",
       desc: "Realizamos um controle de qualidade rigoroso em todos os produtos que trabalhamos, desde o início até o final do processo.",
-      icon: <QualIcon className="w-[30px] h-auto fill-white lg:w-[50px] xl:w-[60px]" />,
+      icon: (
+        <QualIcon className="w-[30px] h-auto fill-white lg:w-[50px] xl:w-[60px]" />
+      ),
     },
   ],
   [
     {
       title: "Atendimento personalizado",
       desc: "Oferecemos um atendimento diferenciado, personalizado e soluções completas, com foco nas necessidades específicas de cada cliente em diversos setores da indústria, construção civil, e outros.",
-      icon: <AtendIcon className="w-[30px] h-auto fill-white lg:w-[50px] xl:w-[60px]" />,
+      icon: (
+        <AtendIcon className="w-[30px] h-auto fill-white lg:w-[50px] xl:w-[60px]" />
+      ),
     },
     {
       title: "Experiencia e Suporte",
       desc: "Possuimos uma equipe altamente qualificada e experiente, com profundo conhecimento técnico e expertise na área de cabos de aço e serviços relacionados.",
-      icon: <ExpIcon className="w-[30px] h-auto fill-white lg:w-[50px] xl:w-[60px]" />,
+      icon: (
+        <ExpIcon className="w-[30px] h-auto fill-white lg:w-[50px] xl:w-[60px]" />
+      ),
     },
   ],
 ];
 
-export default function index() {
+export default function Diferenciais() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
-    <section className="w-full lg:flex lg:p-10 xl:p-20 2xl:p-28 2xl:gap-32 lg:items-center lg:gap-10">
+    <section
+      ref={ref}
+      className="w-full lg:flex lg:p-10 xl:p-20 2xl:p-28 2xl:gap-32 lg:items-center lg:gap-10"
+    >
       <div className="w-auto h-[230px] sm:h-[300px] bg-cover bg-foto-diferenciais p-4 lg:h-[520px] lg:min-w-[380px] xl:min-w-[530px] xl:h-[768px] bg-center order-2">
         <div className="w-full h-full p-4 border border-white"></div>
       </div>
-      <div className="w-full p-2 lg:p-0 order-1 flex flex-col gap-3 xl:gap-5">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
+        className="w-full p-2 lg:p-0 order-1 flex flex-col gap-3 xl:gap-5"
+      >
         <h2 className="w-full hidden lg:block lg:text-center text-xl md:text-2xl lg:text-3xl xl:text-4xl font-mono text-azul-titulo font-bold drop-shadow-[2px_0px_0px_rgba(47,67,80,1)]">
           DIFERENCIAS
         </h2>
@@ -97,7 +114,7 @@ export default function index() {
             );
           })}
         </Swiper>
-      </div>
+      </motion.div>
     </section>
   );
 }

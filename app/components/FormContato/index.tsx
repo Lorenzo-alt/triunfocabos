@@ -1,10 +1,13 @@
 "use client";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BsArrowUpSquare } from "react-icons/bs";
 
 export default function FormContato() {
   const [rows, setRows] = useState<number>(12);
+  const ref = useRef(null);
+  const isInView = useInView(ref);
 
   useEffect(() => {
     if (window) {
@@ -51,17 +54,28 @@ export default function FormContato() {
   }, []);
 
   return (
-    <section className="bg-azul-titulo px-2 lg:px-44 w-full  py-10 lg:py-14 xl:py-20 ">
+    <section
+      ref={ref}
+      className="bg-azul-titulo px-2 lg:px-44 w-full  py-10 lg:py-14 xl:py-20 "
+    >
       <div className="flex flex-col gap-10 xl:gap-14">
-        <div className="relative flex flex-col items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isInView ? 1 : 0 }}
+          className="relative flex flex-col items-center justify-center"
+        >
           <div className="bg-cinza2 h-0.5 w-full rounded-full" />
           <div className="absolute bg-azul-titulo left-0 ml-3">
             <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-mono text-white font-bold px-2 drop-shadow-[2px_0px_0px_rgba(173,173,173,1)]">
               ATENDIMENTO
             </h2>
           </div>
-        </div>
-        <form action="" className="px-5 lg:px-0 flex flex-col gap-5 xl:gap-8">
+        </motion.div>
+        <motion.form
+          initial={{ opacity: 0, y: 80 }}
+          animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 80 }}
+          className="px-5 lg:px-0 flex flex-col gap-5 xl:gap-8"
+        >
           <div className="flex flex-col xl:grid xl:grid-flow-col gap-5 xl:gap-8">
             <div className="flex flex-col gap-1">
               <label
@@ -125,7 +139,7 @@ export default function FormContato() {
               <BsArrowUpSquare className="w-5 xl:w-6 2xl:w-7 h-auto" />
             </div>
           </Link>
-        </form>
+        </motion.form>
       </div>
     </section>
   );

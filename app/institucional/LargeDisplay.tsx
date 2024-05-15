@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import { motion, useInView } from "framer-motion";
+import React, { useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 const institucionalInfos = [
@@ -58,10 +59,13 @@ const institucionalInfos = [
 ];
 
 export default function LargeDisplay() {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
   const [indexValue, setIndexValue] = useState<number>(0);
 
   return (
-    <div className="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-justify lg:bg-azul-claro rounded-[10px] flex flex-col gap-7 lg:gap-0 lg:mx-24 xl:mx-32">
+    <motion.div ref={ref} initial={{ opacity: 0, scale: 0.8 }}
+    animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.8 }} className="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-justify lg:bg-azul-claro rounded-[10px] flex flex-col gap-7 lg:gap-0 lg:mx-24 xl:mx-32">
       <>
         <div className="hidden lg:grid grid-cols-9 w-full">
           {institucionalInfos.map((item, index) => {
@@ -109,6 +113,6 @@ export default function LargeDisplay() {
           </div>
         );
       })}
-    </div>
+    </motion.div>
   );
 }

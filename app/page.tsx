@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center h-full w-full max-w-[2560px]">
+    <main className="flex flex-col items-center justify-center h-full w-full max-w-[2560px] overflow-hidden">
       <Hero />
       <Sobre />
       <Produtos />
