@@ -12,10 +12,9 @@ export default function FormContato() {
   useEffect(() => {
     if (window) {
       var sm = window.matchMedia("(max-width: 767px)");
-      var md = window.matchMedia("(max-width: 768px)");
-      var lg = window.matchMedia("(max-width: 1024px)");
-      var xl = window.matchMedia("(max-width: 1280px)");
-      var xl2 = window.matchMedia("(min-width: 1281px)");
+      var md = window.matchMedia("(max-width: 1024px)");
+      var lg = window.matchMedia("(max-width: 1280px)");
+      var xl = window.matchMedia("(min-width: 1281px)");
 
       if (sm.matches) {
         setRows(12);
@@ -25,9 +24,7 @@ export default function FormContato() {
         setRows(8);
       } else if (xl.matches) {
         setRows(7);
-      } else if (xl2.matches) {
-        setRows(6);
-      }
+      } 
 
       sm.addEventListener("change", function () {
         setRows(12);
@@ -41,10 +38,22 @@ export default function FormContato() {
       xl.addEventListener("change", function () {
         setRows(7);
       });
-      xl2.addEventListener("change", function () {
-        setRows(6);
-      });
 
+      const handleResize = () => {
+
+        let resp = 0
+        if(window.innerWidth < 767) resp = 12
+        else if (window.innerWidth > 767 && window.innerWidth < 1024) resp = 10
+        else if (window.innerWidth > 1024 && window.innerWidth < 1280) resp = 8
+        else if (window.innerWidth > 1280) resp = 7
+        setRows(resp);
+      }
+    
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
       //   return () => {
       //     sm.removeEventListener("change", function () {
       //       setRows(10);

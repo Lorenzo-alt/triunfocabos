@@ -25,12 +25,25 @@ const useNavPagesHook = () => {
       setIsMobile(false);
     }
   };
+  if (typeof window !== "undefined") {
+    var lg = window.matchMedia("(min-width: 1024px)");
+  }
+  const handleResize = () => {
+    if (typeof window !== "undefined" && window.innerWidth > 1024)
+      setIsMobile(false);
+  };
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", handleResize);
+    }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", handleResize);
+      }
     };
   }, []);
 
@@ -95,6 +108,9 @@ export default function NavPages() {
               <Link
                 prefetch={false}
                 href={item.path}
+                onClick={() => {
+                  setIsMobile(false);
+                }}
                 onMouseEnter={() => {
                   item.name === "Produtos" &&
                     setOpenNav((prevOpenNav) => {
@@ -147,6 +163,9 @@ export default function NavPages() {
           <Link
             prefetch={false}
             href={"/contato"}
+            onClick={() => {
+              setIsMobile(false);
+            }}
             className={twMerge(
               "rounded-[10px] text-sm font-medium cursor-pointer p-4 px-12 bg-vermelho-principal shadow-[4px_4px_0px_rgba(60,14,9,0.70)]"
             )}

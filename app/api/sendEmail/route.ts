@@ -4,20 +4,20 @@ export async function POST(request: Request) {
     const res = await request.json()
     console.log(res)
     let transporter = nodemailer.createTransport({ 
-        service: "Gmail",
-  host: "smtp.gmail.com",port: 465,
+        service: "titan",
+  host: "smtp.titan.email",port: 465,
   secure: true,
         auth: { 
-           user: 'geraldo.loucura@gmail.com', 
-           pass: 'aoww asqs mmam atgv' 
+           user: 'rm@triunfocabos.com.br', 
+           pass: '123@Rmtriunfo' 
          } 
         });
 
         const mailOptions = {
-            from: 'carlos.loucura@gmail.com', // sender address
-            to: 'lorenzo.juliati@gmail.com', // receiver (use array of string for a list)
-            subject: 'Subject of your email', // Subject line
-            html: '<p>Your html here</p>'// plain text body
+            from: 'rm@triunfocabos.com.br', // sender address
+            to: 'rm@triunfocabos.com.br', // receiver (use array of string for a list)
+            subject: 'TESTE EMAIL SITE', // Subject line
+            html: '<p>TESTE EMAIL SITE</p>'// plain text body
           };
           transporter.sendMail(mailOptions, (err, info) => {
             if(err)
