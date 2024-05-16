@@ -11,7 +11,7 @@ export async function mongooseConnect() {
       console.log("Connected from previous");
       return global.mongoose.conn;
     } else {
-      const conString = process.env.MONGODB_URI;
+      const conString = 'mongodb+srv://vercel-admin-user:wYTpv29pc8VSiTMp@db-triunfocabos.fp4ftis.mongodb.net/db-triunfocabos?retryWrites=true&w=majority&appName=db-triunfocabos';
 
       const promise = mongoose.connect(conString, {
         autoIndex: true,
