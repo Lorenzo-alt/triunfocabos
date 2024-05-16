@@ -26,8 +26,8 @@ export async function mongooseConnect() {
       return await promise;
     }
   } catch (error) {
-    console.error("Error connecting to the database:", error);
-    throw new Error("Database connection failed");
+    console.error("teste Error connecting to the database:", error);
+    throw new Error("Database connection failed teste");
   }
 }
 
