@@ -2,8 +2,9 @@ import { mongooseConnect } from "@/app/lib/mongoose";
 import { Produtos } from "@/app/models/Produto";
 
 export async function GET(request: Request) {
-    await mongooseConnect();
     const { searchParams } = new URL(request.url)
+    if(searchParams) await mongooseConnect();
+    
     console.log(searchParams)
     const id = searchParams.get('id')
     if(id !== 'favicon.ico'){
