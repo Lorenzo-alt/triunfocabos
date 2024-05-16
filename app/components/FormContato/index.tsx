@@ -35,28 +35,28 @@ export default function FormContato() {
     setValues(JSON.stringify(data, null, 2));
   };
 
-  const enviarEmail = async (values: string) => {
-    try {
-      const response = await fetch("/api/sendemail", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: values,
-      });
-      if (response.ok) {
-        // Lógica para lidar com o sucesso do envio do email
-      } else {
-        // Lógica para lidar com falha no envio do email
-      }
-    } catch (error) {
-      console.error("Erro ao enviar o email:", error);
-    }
-  };
+  // const enviarEmail = async (values: string) => {
+  //   try {
+  //     const response = await fetch("/api/sendemail", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: values,
+  //     });
+  //     if (response.ok) {
+  //       // Lógica para lidar com o sucesso do envio do email
+  //     } else {
+  //       // Lógica para lidar com falha no envio do email
+  //     }
+  //   } catch (error) {
+  //     console.error("Erro ao enviar o email:", error);
+  //   }
+  // };
 
-  useEffect(() => {
-    if (values) enviarEmail(values);
-  }, [values]);
+  // useEffect(() => {
+  //   if (values) enviarEmail(values);
+  // }, [values]);
 
   const ref = useRef(null);
   const isInView = useInView(ref);
