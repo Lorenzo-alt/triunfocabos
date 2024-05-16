@@ -75,7 +75,7 @@ export default function Footer() {
           </div>
           {(blocksFooter[0] as { text: string; logo: JSX.Element }).logo}
         </motion.div>
-        <div className="flex flex-wrap justify-center xl:flex-col gap-3">
+        <div className="flex flex-wrap justify-center w-full xl:flex-col xl:w-auto gap-3">
           <motion.span initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}  className="font-bold flex justify-center xl:justify-start w-full xl:w-auto">Navegue</motion.span>
           {(blocksFooter[1] as { path: string; name: string }[]).map(
@@ -95,7 +95,7 @@ export default function Footer() {
             }
           )}
         </div>
-        <div className="flex flex-wrap justify-center xl:flex-col gap-3 xl:w-80"><motion.span initial={{ opacity: 0, y: 50 }}
+        <div className="flex flex-wrap w-full  justify-center xl:flex-col gap-3 xl:w-80"><motion.span initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}  className="font-bold flex justify-center xl:justify-start w-full xl:w-auto xl:ml-7">Atendimento</motion.span>
         {(blocksFooter[2] as { icone: JSX.Element, dado: string, link: string }[]).map((item, index) =>
           <motion.a initial={{ opacity: 0, y: 50 }}
