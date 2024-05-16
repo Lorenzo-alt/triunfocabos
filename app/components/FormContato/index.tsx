@@ -37,7 +37,7 @@ export default function FormContato() {
 
   const enviarEmail = async (values: string) => {
     try {
-      const response = await fetch(process.env.SITE_URL + "/api/sendemail", {
+      const response = await fetch("/api/sendEmail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
