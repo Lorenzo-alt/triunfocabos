@@ -7,6 +7,7 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { twMerge } from "tailwind-merge";
+import toast from "react-hot-toast";
 
 const formSchema = z.object({
   nome: z.string().min(2, { message: "* Digite um nome valido." }),
@@ -29,6 +30,7 @@ export default function FormContato() {
   });
 
   const [values, setValues] = useState("");
+  const [loading, setLoading] = useState<boolean>();
   const [rows, setRows] = useState<number>(12);
 
   const submit = (data: typeForm) => {
@@ -36,6 +38,8 @@ export default function FormContato() {
   };
 
   const enviarEmail = async (values: string) => {
+    setLoading(true);
+    toast.loading("Enviando...");
     try {
       const response = await fetch("/api/sendemail", {
         method: "POST",
@@ -45,12 +49,22 @@ export default function FormContato() {
         body: values,
       });
       if (response.ok) {
-        // Lógica para lidar com o sucesso do envio do email
+        setLoading(false);
+        toast.dismiss();
+        toast.success("Email enviado com sucesso!");
       } else {
-        // Lógica para lidar com falha no envio do email
+        setLoading(false);
+        toast.dismiss();
+        toast.error(
+          "Ocorreu um erro no servidor, entre em contato pelo telefone!"
+        );
       }
     } catch (error) {
-      console.error("Erro ao enviar o email:", error);
+      setLoading(false);
+      toast.dismiss();
+      toast.error(
+        "Ocorreu um erro no servidor, entre em contato pelo telefone!"
+      );
     }
   };
 
@@ -158,10 +172,11 @@ export default function FormContato() {
                 id="input_email"
                 type="text"
                 {...register("email")}
+                disabled={loading === true}
                 className={twMerge(
                   "bg-cinza-input focus:bg-neutral-200 focus:outline-1 outline-offset-4 outline-[#ffffff] ring-0 text-azul-titulo focus:text-azul-titulo rounded-[10px] text-sm md:text-base xl:text-lg 2xl:text-xl w-full pt-4 xl:pt-6 px-2 border-b-cinza2 border-b-4 font-bold placeholder-azul-titulo",
                   errors.email &&
-                    "outline-1 outline-offset-1 outline-[#E72733] text-[#E72733] placeholder:text-[#E72733]"
+                    "outline-1 outline-offset-1 outline-[#E72733] text-[#E72733] placeholder:text-[#E72733]", loading === true && 'opacity-50'
                 )}
                 placeholder="Digite seu e-mail para contato..."
               />
@@ -184,10 +199,11 @@ export default function FormContato() {
                 id="input_nome"
                 {...register("nome")}
                 type="text"
+                disabled={loading === true}
                 className={twMerge(
                   "bg-cinza-input focus:bg-neutral-200 focus:outline-1 outline-offset-4 outline-[#ffffff] ring-0 text-azul-titulo focus:text-azul-titulo rounded-[10px] text-sm md:text-base xl:text-lg 2xl:text-xl w-full pt-4 xl:pt-6 px-2 border-b-cinza2 border-b-4 font-bold placeholder-azul-titulo",
                   errors.nome &&
-                    "outline-1 outline-offset-1 outline-[#E72733] text-[#E72733] placeholder:text-[#E72733]"
+                    "outline-1 outline-offset-1 outline-[#E72733] text-[#E72733] placeholder:text-[#E72733]", loading === true && 'opacity-50'
                 )}
                 placeholder="Digite seu nome aqui..."
               />
@@ -209,11 +225,11 @@ export default function FormContato() {
               <input
                 id="input_telefone"
                 {...register("telefone")}
-                type="text"
+                type="text" disabled={loading === true}
                 className={twMerge(
                   "bg-cinza-input focus:bg-neutral-200 focus:outline-1 outline-offset-4 outline-[#ffffff] ring-0 text-azul-titulo focus:text-azul-titulo rounded-[10px] text-sm md:text-base xl:text-lg 2xl:text-xl w-full pt-4 xl:pt-6 px-2 border-b-cinza2 border-b-4 font-bold placeholder-azul-titulo",
                   errors.telefone &&
-                    "outline-1 outline-offset-1 outline-[#E72733] text-[#E72733] placeholder:text-[#E72733]"
+                    "outline-1 outline-offset-1 outline-[#E72733] text-[#E72733] placeholder:text-[#E72733]", loading === true && 'opacity-50'
                 )}
                 placeholder="Digite seu telefone..."
               />
@@ -236,11 +252,11 @@ export default function FormContato() {
             <textarea
               rows={rows}
               id="input_mensagem"
-              {...register("mensagem")}
+              {...register("mensagem")} disabled={loading === true}
               className={twMerge(
                 "bg-cinza-input focus:bg-neutral-200 focus:outline-1 outline-offset-4 outline-[#ffffff] ring-0 text-azul-titulo focus:text-azul-titulo rounded-[10px] text-sm md:text-base xl:text-lg 2xl:text-xl w-full pt-4 xl:pt-6 px-2 border-b-cinza2 border-b-4 font-bold placeholder-azul-titulo",
                 errors.mensagem &&
-                  "outline-1 outline-offset-1 outline-[#E72733] text-[#E72733] placeholder:text-[#E72733]"
+                  "outline-1 outline-offset-1 outline-[#E72733] text-[#E72733] placeholder:text-[#E72733]", loading === true && 'opacity-50'
               )}
               placeholder="Digite sua mensagem..."
             />
