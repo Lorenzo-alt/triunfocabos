@@ -22,6 +22,7 @@ export default function FormContato() {
   const {
     register,
     handleSubmit,
+    reset,
     setValue,
     control,
     formState: { errors },
@@ -52,6 +53,7 @@ export default function FormContato() {
         setLoading(false);
         toast.dismiss();
         toast.success("Email enviado com sucesso!");
+        reset()
       } else {
         setLoading(false);
         toast.dismiss();
