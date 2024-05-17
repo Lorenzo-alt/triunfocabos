@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://triunfocabos.vercel.app/
+Host: https://triunfocabos.com.br/
 
 # Sitemaps
-Sitemap: https://triunfocabos.vercel.app/sitemap.xml
+Sitemap: https://triunfocabos.com.br/sitemap.xml
