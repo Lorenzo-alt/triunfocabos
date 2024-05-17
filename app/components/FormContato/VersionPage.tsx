@@ -22,6 +22,7 @@ export default function VersionPage() {
     register,
     handleSubmit,
     setValue,
+    reset,
     control,
     formState: { errors },
   } = useForm<typeForm>({
@@ -52,6 +53,7 @@ export default function VersionPage() {
         setLoading(false);
         toast.dismiss();
         toast.success("Email enviado com sucesso!");
+        reset()
       } else {
         setLoading(false);
         toast.dismiss();
