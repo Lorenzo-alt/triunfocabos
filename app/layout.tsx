@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import { Suspense } from "react";
 import Loading from "./loading";
+import toast, { Toaster } from 'react-hot-toast';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -62,6 +63,7 @@ export default function RootLayout({
         <Suspense fallback={<Loading />}>
           <NavBar />
           {children}
+          <Toaster/>
           <Footer />
         </Suspense>
       </body>

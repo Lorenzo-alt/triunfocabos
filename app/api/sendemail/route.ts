@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer'
+import toast from 'react-hot-toast';
 
 type typeMensagem = {
   nome: string;
@@ -31,7 +32,7 @@ export async function POST(request: Request) {
   
     try {
       const info = await transporter.sendMail(mailOptions);
-      console.log(info);
+      
       return new Response(JSON.stringify({ message: 'Email sent successfully' }), { status: 200 });
     } catch (err) {
       console.error(err);
