@@ -4,7 +4,7 @@ import Titulo from "../components/Titulo";
 import Texto from "../components/Empresa/Texto";
 
 export const metadata: Metadata = {
-  title: "Empresa | RM Trinfo Cabos",
+  title: "Empresa | RM Triunfo Cabos",
   description:
     "Somos RM Triunfo Cabos fundada em 2023. Ao longo dessa trajetória, a empresa conquistou a confiança de clientes dos mais diversos setores, oferecendo soluções completas e personalizadas em cabos de aço para atender às mais variadas necessidades.",
   keywords:
@@ -14,14 +14,14 @@ export const metadata: Metadata = {
     "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   openGraph: {
     type: "website",
-    siteName: "Empresa | RM Trinfo Cabos",
-    title: "Empresa | RM Trinfo Cabos",
+    siteName: "Empresa | RM Triunfo Cabos",
+    title: "Empresa | RM Triunfo Cabos",
     description:
       "Somos RM Triunfo Cabos fundada em 2023. Ao longo dessa trajetória, a empresa conquistou a confiança de clientes dos mais diversos setores, oferecendo soluções completas e personalizadas em cabos de aço para atender às mais variadas necessidades.",
     url: "link",
   },
   twitter: {
-    title: "Empresa | RM Trinfo Cabos",
+    title: "Empresa | RM Triunfo Cabos",
     description:
       "Somos RM Triunfo Cabos fundada em 2023. Ao longo dessa trajetória, a empresa conquistou a confiança de clientes dos mais diversos setores, oferecendo soluções completas e personalizadas em cabos de aço para atender às mais variadas necessidades.",
     creator: "Lorenzo-alt",

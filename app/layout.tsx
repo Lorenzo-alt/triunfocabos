@@ -19,7 +19,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "RM Trinfo Cabos",
+  title: "RM Triunfo Cabos",
   description:
     "A RM Triunfo Cabos oferece a mais alta qualidade em cabos de aço para diversos setores. Experiência, qualidade, variedade, atendimento personalizado e compromisso com o cliente.",
   keywords:
@@ -29,14 +29,14 @@ export const metadata: Metadata = {
     "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   openGraph: {
     type: "website",
-    siteName: "RM Trinfo Cabos",
-    title: "RM Trinfo Cabos",
+    siteName: "RM Triunfo Cabos",
+    title: "RM Triunfo Cabos",
     description:
       "A RM Triunfo Cabos oferece a mais alta qualidade em cabos de aço para diversos setores. Experiência, qualidade, variedade, atendimento personalizado e compromisso com o cliente.",
     url: "link",
   },
   twitter: {
-    title: "RM Trinfo Cabos",
+    title: "RM Triunfo Cabos",
     description:
       "A RM Triunfo Cabos oferece a mais alta qualidade em cabos de aço para diversos setores. Experiência, qualidade, variedade, atendimento personalizado e compromisso com o cliente.",
     creator: "Lorenzo-alt",

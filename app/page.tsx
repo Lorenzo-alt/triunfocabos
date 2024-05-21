@@ -9,7 +9,7 @@ import FormContato from "./components/FormContato";
 import Loading from "./loading";
 
 export const metadata: Metadata = {
-  title: "Home | RM Trinfo Cabos",
+  title: "Home | RM Triunfo Cabos",
   description:
     "A RM Triunfo Cabos oferece a mais alta qualidade em cabos de aço para diversos setores. Experiência, qualidade, variedade, atendimento personalizado e compromisso com o cliente.",
   keywords:
@@ -19,14 +19,14 @@ export const metadata: Metadata = {
     "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   openGraph: {
     type: "website",
-    siteName: "Home | RM Trinfo Cabos",
-    title: "Home | RM Trinfo Cabos",
+    siteName: "Home | RM Triunfo Cabos",
+    title: "Home | RM Triunfo Cabos",
     description:
       "A RM Triunfo Cabos oferece a mais alta qualidade em cabos de aço para diversos setores. Experiência, qualidade, variedade, atendimento personalizado e compromisso com o cliente.",
     url: "link",
   },
   twitter: {
-    title: "Home | RM Trinfo Cabos",
+    title: "Home | RM Triunfo Cabos",
     description:
       "A RM Triunfo Cabos oferece a mais alta qualidade em cabos de aço para diversos setores. Experiência, qualidade, variedade, atendimento personalizado e compromisso com o cliente.",
     creator: "Lorenzo-alt",
