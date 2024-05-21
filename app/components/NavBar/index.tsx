@@ -12,12 +12,13 @@ import NavPages from "./NavPages";
 const navInfos = [
   {
     icone: <IoCall color="#E2E023" fontSize={18} />,
-    text: "+55 11 95913-4847",link: "tel://5511959134847/"
+    text: "+55 11 2605-9102",
+    link: "tel://551126059102/",
   },
   {
     icone: <IoMail color="#E2E023" fontSize={18} />,
     text: "rm@triunfocabos.com.br",
-    link: "mailto:rm@triunfocabos.com.br"
+    link: "mailto:rm@triunfocabos.com.br",
   },
   {
     icone: <IoFlag color="#E2E023" fontSize={18} />,
@@ -29,13 +30,19 @@ const navInfos = [
 const navSocial = [
   {
     icone: (
-      <FiInstagram fontSize={20} className="text-white hover:text-[#E2E023] transition-all" />
+      <FiInstagram
+        fontSize={20}
+        className="text-white hover:text-[#E2E023] transition-all"
+      />
     ),
-    link: "https://www.instagram.com/",
+    link: "https://www.instagram.com/triunfo_cabos/",
   },
   {
     icone: (
-      <FaFacebookF fontSize={20} className="text-white hover:text-[#E2E023] transition-all" />
+      <FaFacebookF
+        fontSize={20}
+        className="text-white hover:text-[#E2E023] transition-all"
+      />
     ),
     link: "https://web.facebook.com/",
   },
@@ -51,7 +58,8 @@ export default function NavBar() {
               <a
                 className="flex gap-1 items-center hover:text-[#E2E023] cursor-pointer transition-all"
                 href={item.link}
-                target="_blank" rel="noopener noreferrer"
+                target="_blank"
+                rel="noopener noreferrer"
                 key={index}
               >
                 {item.icone}
@@ -63,16 +71,24 @@ export default function NavBar() {
         <div className="flex gap-2 lg:text-xs">
           {navSocial.map((item, index) => {
             return (
-              <Link href={item.link} key={index}>
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={index}
+              >
                 {item.icone}
-              </Link>
+              </a>
             );
           })}
         </div>
       </div>
       <span className="bg-white/80 w-full h-0.5 rounded-full hidden lg:block" />
       <div className="flex justify-between items-center text-white 2xl:px-40 xl:py-1 relative">
-        <Logo viewBox="0 0 1600 1527" className="h-auto xl:w-20 w-16" />
+        <Link href={"/"}>
+          <Logo viewBox="0 0 1600 1527" className="h-auto xl:w-20 w-16" />
+        </Link>
+
         <NavPages />
       </div>
     </nav>

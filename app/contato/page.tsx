@@ -41,8 +41,19 @@ const blocksFooter = [
         className="hidden lg:block xl:text-2xl"
       />
     ),
+    dado: "(11) 2605-9102",
+    link: "tel://551126059102/",
+  },
+  {
+    icone: (
+      <IoLogoWhatsapp
+        color="#263945"
+        fontSize={18}
+        className="hidden xl:block xl:text-2xl"
+      />
+    ),
     dado: "(11) 95913-4847",
-    link: "tel://5511959134847/",
+    link: "https://api.whatsapp.com/send?phone=5511959134847&text=Ol%C3%A1,%20equipe%20da%20RM%20Triunfo%20Cabos!%20Tenho%20interesse%20em%20obter%20um%20or%C3%A7amento",
   },
   {
     icone: (
@@ -75,7 +86,7 @@ const blocksFooter = [
       />
     ),
     dado: "R. Barretos, 289 - Alto da Mooca, São Paulo - SP, 03184-080",
-    link: "tel://5511959134847/",
+    link: "https://maps.app.goo.gl/sXbv872agVW6ym6k6",
   },
 ];
 
@@ -87,7 +98,7 @@ const navSocial = [
         className="text-white hover:text-[#E2E023] transition-all"
       />
     ),
-    link: "https://www.instagram.com/",
+    link: "https://www.instagram.com/triunfo_cabos/",
   },
   {
     icone: (
@@ -103,8 +114,8 @@ const navSocial = [
 export default async function Contato() {
   return (
     <main className="flex flex-col items-center justify-center h-full w-full max-w-[2560px]">
-      <Titulo titulo="Contato"/>
-      <ConteudoContato dadosContato={blocksFooter} dadosSocial={navSocial}/>
+      <Titulo titulo="Contato" />
+      <ConteudoContato dadosContato={blocksFooter} dadosSocial={navSocial} />
       <section className="w-full">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.139222396708!2d-46.58782482466979!3d-23.56344277879831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5f5c71c21a09%3A0xbc4748fbfdb1e8e!2sRm%20triunfo%20cabos!5e0!3m2!1spt-BR!2sbr!4v1713827856643!5m2!1spt-BR!2sbr"
