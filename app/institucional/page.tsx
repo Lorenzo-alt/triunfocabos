@@ -5,7 +5,7 @@ import Titulo from "../components/Titulo";
 import Texto from "../components/Institucional/Texto";
 
 export const metadata: Metadata = {
-  title: "Institucional | RM Trinfo Cabos",
+  title: "Institucional | RM Triunfo Cabos",
   description:
     "A Triunfo Cabos está comprometida com a qualidade em todos os aspectos de suas atividades, desde a seleção de fornecedores até a entrega final dos produtos aos seus clientes.",
   keywords:
@@ -15,14 +15,14 @@ export const metadata: Metadata = {
     "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   openGraph: {
     type: "website",
-    siteName: "Institucional | RM Trinfo Cabos",
-    title: "Institucional | RM Trinfo Cabos",
+    siteName: "Institucional | RM Triunfo Cabos",
+    title: "Institucional | RM Triunfo Cabos",
     description:
       "A Triunfo Cabos está comprometida com a qualidade em todos os aspectos de suas atividades, desde a seleção de fornecedores até a entrega final dos produtos aos seus clientes.",
     url: "link",
   },
   twitter: {
-    title: "Institucional | RM Trinfo Cabos",
+    title: "Institucional | RM Triunfo Cabos",
     description:
       "A Triunfo Cabos está comprometida com a qualidade em todos os aspectos de suas atividades, desde a seleção de fornecedores até a entrega final dos produtos aos seus clientes.",
     creator: "Lorenzo-alt",

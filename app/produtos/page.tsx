@@ -7,7 +7,7 @@ import Titulo from "../components/Titulo";
 import ProdutosItems from "../components/Produtos/ProdutosItems";
 
 export const metadata: Metadata = {
-  title: "Produtos | RM Trinfo Cabos",
+  title: "Produtos | RM Triunfo Cabos",
   description:
     "RM Triunfo Cabos oferece cabos de aço e acessórios para elevação, movimentação e amarração de cargas. Alta qualidade, durabilidade e variedade. Encontre o cabo ideal para sua necessidade!",
   keywords:
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
     "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   openGraph: {
     type: "website",
-    siteName: "Produtos | RM Trinfo Cabos",
-    title: "Produtos | RM Trinfo Cabos",
+    siteName: "Produtos | RM Triunfo Cabos",
+    title: "Produtos | RM Triunfo Cabos",
     description:
       "RM Triunfo Cabos oferece cabos de aço e acessórios para elevação, movimentação e amarração de cargas. Alta qualidade, durabilidade e variedade. Encontre o cabo ideal para sua necessidade!",
     url: "link",
   },
   twitter: {
-    title: "Produtos | RM Trinfo Cabos",
+    title: "Produtos | RM Triunfo Cabos",
     description:
       "RM Triunfo Cabos oferece cabos de aço e acessórios para elevação, movimentação e amarração de cargas. Alta qualidade, durabilidade e variedade. Encontre o cabo ideal para sua necessidade!",
     creator: "Lorenzo-alt",

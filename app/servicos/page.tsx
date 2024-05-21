@@ -7,7 +7,7 @@ import Titulo from "../components/Titulo";
 import ConteudoServico from "../components/Servicos/ConteudoServico";
 
 export const metadata: Metadata = {
-  title: "Servicos | RM Trinfo Cabos",
+  title: "Servicos | RM Triunfo Cabos",
   description:
     "A Triunfo Cabos é referência nos setores de movimentação e amarração de carga, e nossos serviços são projetados para garantir a segurança e eficiência em todas as etapas. Aqui estão os principais serviços que oferecemos.",
   keywords:
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
     "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   openGraph: {
     type: "website",
-    siteName: "Servicos | RM Trinfo Cabos",
-    title: "Servicos | RM Trinfo Cabos",
+    siteName: "Servicos | RM Triunfo Cabos",
+    title: "Servicos | RM Triunfo Cabos",
     description:
       "A Triunfo Cabos é referência nos setores de movimentação e amarração de carga, e nossos serviços são projetados para garantir a segurança e eficiência em todas as etapas. Aqui estão os principais serviços que oferecemos.",
     url: "link",
   },
   twitter: {
-    title: "Servicos | RM Trinfo Cabos",
+    title: "Servicos | RM Triunfo Cabos",
     description:
       "A Triunfo Cabos é referência nos setores de movimentação e amarração de carga, e nossos serviços são projetados para garantir a segurança e eficiência em todas as etapas. Aqui estão os principais serviços que oferecemos.",
     creator: "Lorenzo-alt",
