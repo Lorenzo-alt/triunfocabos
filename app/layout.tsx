@@ -5,7 +5,8 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import { Suspense } from "react";
 import Loading from "./loading";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
+import WhatsButton from "./components/WhatsButton";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -62,8 +63,12 @@ export default function RootLayout({
         />
         <Suspense fallback={<Loading />}>
           <NavBar />
-          {children}
-          <Toaster/>
+          <main className="flex flex-col relative justify-center items-center w-full">
+            {children}
+            <WhatsButton />
+          </main>
+
+          <Toaster />
           <Footer />
         </Suspense>
       </body>
