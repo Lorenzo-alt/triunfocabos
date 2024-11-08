@@ -10,10 +10,43 @@ type typeMensagem = {
 
 export async function POST(request: Request) {
     const res: typeMensagem = await request.json()
-    const htmlMsg = `<div style="background-color:#17232B;padding:20px;display:flex;flex-direction:column;gap:1rem;border-radius:0.375rem;max-width:32rem"><h1 style="color:#F6F6F6;font-weight:700;text-align:center">Você Recebeu uma Mensagem!</h1><div style="display:flex;flex-direction:column;gap:0.25rem;padding:16px;border-radius:0.375rem;align-items:center;justify-content:center;background-color:#DEDEDE"><div style="display:flex;gap:1.5rem"><div style="display:flex;gap:0.25rem; align-items: center;"><strong>Nome:</strong> <p>${res.nome}</p></div><div style="display:flex;gap:0.25rem; align-items: center;"><strong>Telefone:</strong> <p>${res.telefone}</p></div></div><div style="display:flex;gap:0.25rem; align-items: center;"><strong>Email:</strong><p>${res.email}</p></div><div><p><strong>Mensagem:</strong> ${res.mensagem}</p></div></div></div>`
+    const htmlMsg = `<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0;">
+  <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #0C212D; border: 1px solid #ddd; border-radius: 10px;">
+    <div style="text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 20px; color: #fff; ">
+      Você Recebeu uma Mensagem!
+    </div>
+    <div style="background-color: #fff; padding: 20px; border-radius: 10px;">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 20px; width: 100%;">
+        <div style="width: 30%;">
+          <strong>Nome:</strong> ${res.nome}
+        </div>
+        <div style="width: 30%;">
+          <strong>Telefone:</strong> ${res.telefone}
+        </div>
+        <div style="width: 30%;">
+          <strong>Email:</strong> ${res.email}
+        </div>
+      </div>
+      <div style="margin-top: 20px;">
+        <strong>Mensagem:</strong> ${res.mensagem}
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>`;
     let transporter = nodemailer.createTransport({
-      service: 'titan',
-      host: 'smtp.titan.email',
+      service: 'Gmail',
+      host: 'smtp.gmail.com',
       port: 465,
       secure: true,
       auth: {
@@ -23,8 +56,8 @@ export async function POST(request: Request) {
     });
   
     const mailOptions = {
-      from: 'rm@triunfocabos.com.br', // sender address
-      to: 'rm@triunfocabos.com.br', // receiver (use array of string for a list)
+      from: process.env.EMAIL_USER, // sender address
+      to: process.env.EMAIL_USER, // receiver (use array of string for a list)
       subject: 'SITE | Você Recebeu uma Mensagem!', // Subject line
       html: htmlMsg, // plain text body
     };
