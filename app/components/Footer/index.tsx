@@ -33,6 +33,13 @@ const blocksFooter = [
     },
     {
       icone: (
+        <IoCall color="#263945" fontSize={18} className="hidden xl:block" />
+      ),
+      dado: "(11) 2021-2409",
+      link: "tel://551120212409/",
+    },
+    {
+      icone: (
         <IoLogoWhatsapp
           color="#263945"
           fontSize={18}
@@ -59,6 +66,13 @@ const blocksFooter = [
       ),
       dado: "rm@triunfocabos.com.br",
       link: "mailto:rm@triunfocabos.com.br",
+    },
+    {
+      icone: (
+        <IoMail color="#263945" fontSize={18} className="hidden xl:block" />
+      ),
+      dado: "vendas@triunfocabos.com.br",
+      link: "mailto:vendas@triunfocabos.com.br",
     },
     {
       icone: (
@@ -138,7 +152,7 @@ export default function Footer() {
                   </Link>
                 </motion.div>
               );
-            }
+            },
           )}
         </div>
         <div className="flex flex-wrap w-full  justify-center xl:flex-col gap-3 xl:w-80">
@@ -178,7 +192,7 @@ export default function Footer() {
         <div className="shadow-[0px_0px_20.0px_rgba(13,19,22,1)] flex items-center justify-between w-full px-4 xl:px-8 py-4 rounded-[20px] text-xs xl:text-sm">
           <div className="flex gap-1 flex-col xl:flex-row font-bold">
             {`RM Triunfo Cabos © - ${String(
-              new Date().getFullYear()
+              new Date().getFullYear(),
             )} - Todos os direitos reservados -`}{" "}
             <div className="hover:underline cursor-pointer hover:text-[#E2E023] transition-all">
               Privacidade
