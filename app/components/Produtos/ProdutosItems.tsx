@@ -4,7 +4,12 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import Loading from "@/app/loading";
+
+// Tempo máximo que o overlay fica na tela. Se a navegação travar sem resposta,
+// o usuário volta a conseguir usar a página em vez de ficar preso no loading.
+const LOADING_MAX_MS = 20000;
 
 type typeProps = {
   lista?: {
@@ -17,8 +22,36 @@ export default function ProdutosItems(props: typeProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const pathname = usePathname();
+  // Mostra o loading assim que o usuário clica num produto, enquanto a página
+  // espera o Mongo responder. Some sozinho quando a nova página substitui esta.
+  const [navegando, setNavegando] = useState(false);
+
+  // Trava de segurança: esconde o overlay se a navegação não terminar a tempo
+  useEffect(() => {
+    if (!navegando) return;
+    const timer = setTimeout(() => setNavegando(false), LOADING_MAX_MS);
+    return () => clearTimeout(timer);
+  }, [navegando]);
+
+  // Ao voltar com o botão "voltar" do navegador (página restaurada do cache),
+  // a tela não deve reaparecer com o overlay ainda aberto
+  useEffect(() => {
+    const onPageShow = (e: PageTransitionEvent) => {
+      if (e.persisted) setNavegando(false);
+    };
+    window.addEventListener("pageshow", onPageShow);
+    return () => window.removeEventListener("pageshow", onPageShow);
+  }, []);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Ctrl/Cmd/Shift-clique ou botão do meio abrem em nova aba: não bloquear a tela
+    if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    setNavegando(true);
+  };
+
   return (
     <section ref={ref} className="flex flex-col lg:items-center">
+      {navegando && <Loading />}
       <div className="flex gap-8 md:gap-10 xl:gap-14 2xl:gap-20 flex-wrap items-center justify-center p-8 lg:p-10 xl:p-16 2xl:p-20 max-w-[1920px]">
         {props.lista &&
           props.lista.map((item, index) => {
@@ -31,6 +64,7 @@ export default function ProdutosItems(props: typeProps) {
               >
                 <Link
                   prefetch={false}
+                  onClick={handleClick}
                   href={
                     `${pathname}/` +
                     item.nome
