@@ -47,6 +47,9 @@ Crie um arquivo `.env.local` na raiz do projeto:
 # URL base do site (com barra no final) — usada para buscar produtos e serviços na API
 SITE_URL=http://localhost:3000/
 
+# String de conexão do MongoDB (Atlas)
+MONGODB_URI=mongodb+srv://usuario:senha@cluster.mongodb.net/db-triunfocabos?retryWrites=true&w=majority
+
 # Conta Gmail usada pelo formulário de contato (use uma "senha de app" do Google)
 EMAIL_USER=seu-email@gmail.com
 EMAIL_PASS=sua-senha-de-app

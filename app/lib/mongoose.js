@@ -11,7 +11,10 @@ export async function mongooseConnect() {
       console.log("Connected from previous");
       return global.mongoose.conn;
     } else {
-      const conString = 'mongodb+srv://vercel-admin-user:***REMOVED***@db-triunfocabos.fp4ftis.mongodb.net/db-triunfocabos?retryWrites=true&w=majority&appName=db-triunfocabos';
+      const conString = process.env.MONGODB_URI;
+      if (!conString) {
+        throw new Error("A variável de ambiente MONGODB_URI não está definida");
+      }
 
       const promise = mongoose.connect(conString, {
         autoIndex: true,
